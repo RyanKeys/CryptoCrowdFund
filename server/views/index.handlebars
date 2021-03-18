@@ -1,1 +1,46 @@
-<h1>Index Page!</h1>
+<h1></h1>
+<div class="container" style="word-wrap: break-word;" id="content"><h1>Sign in to MetaMask:</h1></div>
+
+<script>
+function metaMaskLogin() {
+    if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum);
+        try {
+            // ask user for permission
+            ethereum.enable();
+            provider = new ethers.providers.Web3Provider(window.ethereum)
+            // The Metamask plugin also allows signing transactions to
+            // send ether and pay to change state within the blockchain.
+            // For this, you need the account signer...
+            signer = provider.getSigner()
+            loginHandler(provider, signer)
+            // user approved permission
+        } catch (error) {
+            // user rejected permission
+            console.log("user rejected permission");
+        }
+        } else if (window.web3) {
+            window.web3 = new Web3(window.web3.currentProvider);
+        // no need to ask for permission
+        } else {
+            window.alert(
+                "Non-Ethereum browser detected. You should consider trying MetaMask!"
+            );
+        }
+}
+
+function loginHandler(provider, signer) {
+    signer.getAddress().then((response) => {
+        console.log(response)
+        $("#content").empty()
+        provider.getBalance(response).then((res) => {
+            var balance = ethers.utils.formatEther(res)
+            $("#content").append(`<h1>Welcome ${response}</h1><h3>Current Balance: ${balance}</h3>`)
+        })
+    })
+}
+
+
+
+metaMaskLogin()
+</script> 

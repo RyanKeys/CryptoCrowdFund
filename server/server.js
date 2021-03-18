@@ -1,6 +1,5 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
-const path = require("path");
 const Web3 = require("web3");
 
 const app = express();
@@ -9,8 +8,10 @@ app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 const port = 3000;
 
+// Allows access to the desired network. Currently pointing to the Rinkeby test network.
 const rpcURL = "https://rinkeby.infura.io/v3/fd78f6f784a64fe1a20865081c28a049";
 const web3 = new Web3(rpcURL);
+// Eventually this will lead to the address of our smart contract.
 const address = "0x60680e1c9de55a4e65653b4b56ea93791e7fd64f";
 
 app.get("/", (req, res) => {
