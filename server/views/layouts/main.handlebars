@@ -1,50 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/web3@1.3.4/dist/web3.min.js"></script>
-    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"
-        type="application/javascript"></script>
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"
+      type="application/javascript"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <!-- Compiled and minified CSS -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
     <title>CryptoCrowdfund</title>
-</head>
-<body>
-    <nav>
-        <div class="nav-wrapper indigo darken-3">
-            <a href="#!" class="brand-logo right"><i class="material-icons" style="font-size: 40px;">toll</i>Crypto Crowdfund</a>
-            <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
-            </ul>
-        </div>
+  </head>
+  <body
+    style="
+      background-color: #171a21
+    "
+    text="#c7d5e0"
+  >
+    <nav class="nav" style="background-color: rgba(0, 0, 0, 0); height: 0">
+      <div>
+        <a href="/" id="logo-container" class="brand-logo right"
+          ><i class="material-icons">toll</i>Crypto Crowdfund</a
+        >
+        <a href="/" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/getting-started">Getting Started</a></li>
+          <li><a href="/listings?new">New Listings</a></li>
+          <li><a href="/listings?popular">Popular Listings</a></li>
+          <li id="nav-content"></li>
+        </ul>
+      </div>
     </nav>
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-  </ul>
-
-
-        
-        {{{ body }}}
+    <ul class="sidenav" style="background-color: #171a21" id="mobile-demo">
+      <li><a href="/" style="color: #c7d5e0">Home</a></li>
+      <li><a href="/getting-started" style="color: #c7d5e0">Getting Started</a></li>
+      <li><a href="/listings?new" style="color: #c7d5e0">New Listings</a></li>
+      <li>
+        <a href="/listings?popular" style="color: #c7d5e0">Popular Listings</a>
+      </li>
+      <li id="sidenav-content"></li>
+    </ul>
+    {{{ body }}}
+    <footer class="page-footer" style="background-color: rgba(0,0,0,0);">
+      <div class="container" style="text-align: center; padding-bottom: 1em;">
+        Made by
+        <a style="color: #c7d5e0" href="https://github.com/AcidicNic"
+          >Nicole Rocha Abadie</a
+        >
+        and
+        <a style="color: #c7d5e0" href="https://github.com/RyanKeys"
+          >Ryan Keys</a
+        >
+      </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     {{!-- Handles sidenav control. --}}
-    <script> 
-        $(document).ready(function(){
-            $('.sidenav').sidenav();
-        });
+    <script>
+      $(document).ready(function () {
+        $(".sidenav").sidenav();
+      });
     </script>
-    </body>
+    <script src="static/js/metaMaskLogin.js"></script>
+  </body>
 </html>

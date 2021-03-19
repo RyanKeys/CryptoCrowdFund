@@ -1,11 +1,11 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
 const Web3 = require("web3");
-
+const path = require("path");
 const app = express();
-app.use(express.static("client"));
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use("/static", express.static("public"));
 const port = 3000;
 
 // Allows access to the desired network. Currently pointing to the Rinkeby test network.
@@ -18,11 +18,18 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/profile", (req, res) => {
-  web3.eth.getBalance(address, (err, wei) => {
-    balance = web3.utils.fromWei(wei, "ether");
-    res.render("profile", { balance: balance });
-  });
+app.get("/listings", (req, res) => {
+  if (req.query.new !== undefined) {
+    res.render("listings", { context: "new" });
+  } else if (req.query.popular !== undefined) {
+    res.render("listings", { context: "popular" });
+  } else {
+    res.render("listings");
+  }
+});
+
+app.get("/getting-started", (req, res) => {
+  res.render("getting-started");
 });
 
 app.listen(port, () => {
