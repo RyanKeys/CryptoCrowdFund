@@ -4,6 +4,7 @@
   "description": "A Platform to provide simple international crowdfunding!",
   "main": "server/server.js",
   "dependencies": {
+    "ethereumjs-tx": "^2.1.2",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "mustache": "^4.1.0",

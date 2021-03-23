@@ -1,2 +1,54 @@
 <br>
-<h1> {{{ context }}} listings:</h1>
+<h1>Listings</h1>
+    
+
+<div class="row">
+{{#each context}}
+    <div class="col s12 m3">
+      <div class="card" style="background-color: #1b2838;">
+        <div class="card-content white-text">
+          <span class="card-title">{{this.name}}</span>
+          <p>Goal amount: {{this.goal}} ETH</p>
+          <h6>Description:</h6>
+          <p>{{this.description}}</p>
+          <p id="contractAddress" style="word-break:break-all">{{this.address}}</p>
+
+        </div>
+        <div class="card-action">
+          <label class="left" for="amountToDonate">Donate Now</label>
+          <input style="color: white" name="amountToDonate" id="amountToDonate">
+          
+          <button class="btn" style="background-color: #66c0f4;" onclick="donate()" id="{{this.address}}">Donate</button>
+        </div>
+      </div>
+    </div>
+{{/each}}
+  </div>
+<script type="text/javascript">
+    function donate(object) {
+        
+    }
+</script>
+
+<script>
+   function donate() {
+
+      // The Metamask plugin also allows signing transactions to
+      // send ether and pay to change state within the blockchain.
+      // For this, you need the account signer...
+      signer.getAddress().then((response) => {
+        var contractAddress =document.getElementById("contractAddress").innerHTML
+       var donation = document.getElementById("amountToDonate").value
+       console.log(donation)
+        web3.eth.sendTransaction({
+            from: response,
+            to: contractAddress,
+            value: web3.utils.toWei(donation, "ether")
+        }, (err, transactionId) => {
+            if (err) {
+            console.log(err)
+            }
+        })
+      })
+   }
+</script>

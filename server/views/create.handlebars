@@ -1,0 +1,34 @@
+<br>
+<h1>Create a Fundraiser</h1>
+<div class="container" style="background-color: white;  padding: 2em; border-radius: 5px;">
+    <form method="POST" name="create">
+        <label for="name" style="font-size: large;">Fundraiser Name:</label><br>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="description" style="font-size: large;">Description: (Optional)</label><br>
+        <input type="text" id="description" name="description">
+        <br>
+        <label for="fundraiser-goal" style="font-size: large;">Fundraiser Goal:</label><br>
+        <input type="number" id="goal" name="goal">
+        <br>
+        <label for="duration" style="font-size: large;">Duration: (Days)</label><br>
+        <input type="number" id="duration" name="duration">
+        <br>
+        <label for="address" style="font-size: large;">Wallet Address:</label><br>
+        <input type="text" id="address" name="address" value="">
+        <br>
+    <button class="btn-large" style="background-color: #66c0f4;"type="submit">Submit</button>
+    </form>
+    <script>
+
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+      // The Metamask plugin also allows signing transactions to
+      // send ether and pay to change state within the blockchain.
+      // For this, you need the account signer...
+      signer = provider.getSigner();
+        signer.getAddress().then((response) => {
+            document.create.address.value = response
+        });
+    
+    </script>
+</div>

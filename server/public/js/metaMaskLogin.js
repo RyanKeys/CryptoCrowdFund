@@ -32,6 +32,12 @@ function loginHandler(provider, signer) {
     $("#nav-content").empty();
     $("#sidenav-content").empty();
 
+    provider
+      .getBalance("0xb15A5801099e791283e54ed16d495778a14586dd")
+      .then((res) => {
+        console.log(res);
+      });
+
     provider.getBalance(response).then((res) => {
       var balance = ethers.utils.formatEther(res);
       $("#nav-content").append(

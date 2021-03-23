@@ -21,6 +21,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 
+    
+
     <title>CryptoCrowdfund</title>
   </head>
   <body
@@ -40,8 +42,9 @@
         <ul class="hide-on-med-and-down">
           <li><a href="/">Home</a></li>
           <li><a href="/getting-started">Getting Started</a></li>
-          <li><a href="/listings?new">New Listings</a></li>
-          <li><a href="/listings?popular">Popular Listings</a></li>
+          <li><a href="/create">Create a Fundraiser</a></li>
+          <li><a href="/listings?new">New Fundraisers</a></li>
+          <li><a href="/listings?popular">Popular Fundraisers</a></li>
           <li id="nav-content"></li>
         </ul>
       </div>
@@ -50,10 +53,9 @@
     <ul class="sidenav" style="background-color: #171a21" id="mobile-demo">
       <li><a href="/" style="color: #c7d5e0">Home</a></li>
       <li><a href="/getting-started" style="color: #c7d5e0">Getting Started</a></li>
-      <li><a href="/listings?new" style="color: #c7d5e0">New Listings</a></li>
-      <li>
-        <a href="/listings?popular" style="color: #c7d5e0">Popular Listings</a>
-      </li>
+      <li><a href="/create" style="color: #c7d5e0">Create a Fundraiser</a></li>
+      <li><a href="/listings?new" style="color: #c7d5e0">New Fundraisers</a></li>
+      <li><a href="/listings?popular" style="color: #c7d5e0">Popular Fundraisers</a></li>
       <li id="sidenav-content"></li>
     </ul>
     {{{ body }}}
@@ -76,6 +78,7 @@
         $(".sidenav").sidenav();
       });
     </script>
+    
     <script src="static/js/metaMaskLogin.js"></script>
   </body>
 </html>
