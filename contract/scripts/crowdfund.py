@@ -4,5 +4,5 @@ from brownie import CrowdFund, CrowdFundFactory, accounts
 
 
 def main():
-    account = accounts.load('metamask')
+    account = accounts.load('some-account-name')
     return CrowdFund.deploy({'from': account})
